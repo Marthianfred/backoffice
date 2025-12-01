@@ -1,0 +1,26 @@
+services:
+  wordpress:
+    build: .
+    container_name: neoestudio-backoffice-wordpress-1
+    volumes:
+      - wp_app:/var/www/html
+      - ./files/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./wp-config.php:/var/www/html/wp-config.php
+    environment:
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-0}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_MEMORY_LIMIT', '256M');
+        define('DISALLOW_FILE_EDIT', true);
+    restart: unless-stopped
+    ports:
+      - "4911:4911"
+    networks:
+      - dokploy-net
+
+volumes:
+  wp_app:
+
+networks:
+  dokploy-net:
+    name: dokploy-network
+    external: true
