@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'neoestudio-incio' );
+define( 'DB_NAME', 'neoestudio-backoffice' );
 
 /** MySQL database username */
-define( 'DB_USER', 'neoestudio-incio' );
+define( 'DB_USER', 'neoestudio-backoffice' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'MMpcxg98XDlIuCgLK5Rq' );
+define( 'DB_PASSWORD', 'Agcn5r598VJAj1X4rmeW' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'traigalo-industries-mja9rq' );
