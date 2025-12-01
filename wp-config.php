@@ -79,6 +79,21 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false );
 
+/**
+ * Fix for reverse proxy / load balancer redirect loops.
+ * Tell WordPress to trust the "X-Forwarded-Proto" header from Traefik.
+ */
+if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+    $_SERVER['HTTPS'] = 'on';
+}
+
+/**
+ * Hardcode the site URL to prevent database misconfigurations.
+ */
+define( 'WP_HOME', 'https://backoffice.neoestudio.net' );
+define( 'WP_SITEURL', 'https://backoffice.neoestudio.net' );
+
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
